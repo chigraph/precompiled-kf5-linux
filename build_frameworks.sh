@@ -3,13 +3,12 @@
 set -e
 
 usage() {
-	echo "Usage: build_frameworks.sh [ -t Release|Debug  ] [ -q /path/to/qt ] [ -g <CMake Generator, like Ninja or Unix Makefiles ] [ -v version of KF5 to install, example 5.33.0 ] -i /path/to/install [ -o path/to/tarball ] " 
+	echo "Usage: build_frameworks.sh [ -t Release|Debug  ]] [ -g <CMake Generator, like Ninja or Unix Makefiles ] [ -v version of KF5 to install, example 5.33.0 ] -i /path/to/install [ -o path/to/tarball ] " 
 	exit 1
 }
 
 # parse options
 buildType=Debug
-qtDir=""
 generator="Unix Makefiles"
 installDir=""
 kf5Version=5.33.0
@@ -23,9 +22,6 @@ while getopts ":t:q:g:v:i:o:" o; do
 				echo "Unrecognized Build Type: $buildType"
 				usage
 			fi
-			;;
-		q)
-			qtDir=${OPTARG}
 			;;
 		g)
 			generator=${OPTARG}
