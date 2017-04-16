@@ -22,6 +22,9 @@ addons:
       - texinfo
       - modemmanager
       - network-manager
+      - modemmanager-dev
+      - network-manager-dev
+      - pkg-config
 
 
 branches:
