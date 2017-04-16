@@ -21,6 +21,13 @@ addons:
       - libudev-dev
       - texinfo
 
+
+branches:
+  except:
+    - # Do not build tags that we create when we upload to GitHub Releases
+    - /^(?i:continuous)$/
+
+    
 script:
   - ./build_frameworks.sh -i ~/kf5-debug -t Debug -g Ninja -o ~/kf5-gcc-linux64-debug.tar.xz
   - ./build_frameworks.sh -i ~/kf5-release -t Release -g Ninja -o ~/kf5-gcc-linux64-release.tar.xz
