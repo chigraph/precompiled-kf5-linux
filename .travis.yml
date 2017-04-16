@@ -7,7 +7,7 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
-      - sourceline: 'ppa:beineri/opt-qt562-trusty'
+      - sourceline: 'ppa:beineri/opt-qt521-trusty'
     packages:
       - qt52base
       - qt52script
