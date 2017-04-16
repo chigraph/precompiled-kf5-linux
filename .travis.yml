@@ -8,7 +8,6 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
       - sourceline: 'ppa:beineri/opt-qt562-trusty'
-      - sourceline: 'ppa:9v-shaun-42/networkmanager'
     packages:
       - qt56base
       - qt56script
@@ -22,9 +21,7 @@ addons:
       - libudev-dev
       - texinfo
       - modemmanager
-      - network-manager
       - modemmanager-dev
-      - network-manager-dev
       - pkg-config
       - g++-6
 

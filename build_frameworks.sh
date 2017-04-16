@@ -110,7 +110,7 @@ build_framework kdnssd
 build_framework kidletime
 build_framework kplotting
 build_framework modemmanager-qt
-build_framework networkmanager-qt
+#build_framework networkmanager-qt # it's been a pain in the ass to get the dependencies to work on travis. Contact me if you want this implemented.
 build_framework kwayland
 build_framework prison
 build_framework kguiaddons
