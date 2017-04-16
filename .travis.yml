@@ -7,14 +7,14 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
-      - sourceline: 'ppa:beineri/opt-qt521-trusty'
+      - sourceline: 'ppa:beineri/opt-qt562-trusty'
     packages:
-      - qt52base
-      - qt52script
-      - qt52declarative
-      - qt52tools
-      - qt52x11extras
-      - qt52svg
+      - qt56base
+      - qt56script
+      - qt56declarative
+      - qt56tools
+      - qt56x11extras
+      - qt56svg
       - ninja-build
       - libxcb-keysyms1-dev
       - libxml2-utils
@@ -29,7 +29,7 @@ branches:
 
     
 script:
-  - source /opt/qt52/bin/qt52-env.sh
+  - source /opt/qt56/bin/qt56-env.sh
   - ./build_frameworks.sh -i ~/kf5-debug -t Debug -g Ninja -o ~/kf5-gcc-linux64-debug.tar.xz
   - ./build_frameworks.sh -i ~/kf5-release -t Release -g Ninja -o ~/kf5-gcc-linux64-release.tar.xz
 
