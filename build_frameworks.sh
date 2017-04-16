@@ -15,7 +15,7 @@ kf5Version=5.33.0
 tarballPath=""
 extraCmakeArgs=""
 
-while getopts ":t:q:g:v:i:o:" o; do
+while getopts ":t:q:g:v:i:o:a:" o; do
 	case "${o}" in
 		t) 
 			buildType=${OPTARG}
