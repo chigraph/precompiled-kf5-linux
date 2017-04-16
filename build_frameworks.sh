@@ -3,7 +3,7 @@
 set -e
 
 usage() {
-	echo "Usage: build_frameworks.sh [ -t Release|Debug  ]] [ -g <CMake Generator, like Ninja or Unix Makefiles ] [ -v version of KF5 to install, example 5.33.0 ] -i /path/to/install [ -o path/to/tarball ] " 
+	echo "Usage: build_frameworks.sh [ -t Release|Debug  ]] [ -g <CMake Generator, like Ninja or Unix Makefiles ] [ -v version of KF5 to install, example 5.33.0 ] -i /path/to/install [ -o path/to/tarball ] [ -a Extra CMake args ]"
 	exit 1
 }
 
@@ -13,6 +13,7 @@ generator="Unix Makefiles"
 installDir=""
 kf5Version=5.33.0
 tarballPath=""
+extraCmakeArgs=""
 
 while getopts ":t:q:g:v:i:o:" o; do
 	case "${o}" in
@@ -35,6 +36,9 @@ while getopts ":t:q:g:v:i:o:" o; do
 		o)
 			tarballPath=${OPTARG}
 			;;
+		a)
+			extraCmakeArgs=${OPTARG}
+			;;
 		*)
 			echo "Unrecognized option: -${o} ${OPTARG}"
 			usage
@@ -47,7 +51,11 @@ if [ -z "$installDir" ]; then
 	usage
 fi
 
-echo "Building KDE Frameworks 5 version \"$kf5Version\" with build type \"$buildType\", generator \"$generator\", and qt located in \"$qtDir\" into \"$installDir\""
+printf "Building KDE Frameworks 5 version \"$kf5Version\" with build type \"$buildType\", generator \"$generator\", into \"$installDir\", extra args $extraCmakeArgs"
+if [ -z "$tarballPath" ]; then
+	printf " and creating a tarball: \"$tarballPath\""
+fi
+echo
 
 mkdir -p $installDir
 
@@ -79,9 +87,9 @@ build_framework() {
 		-DCMAKE_PREFIX_PATH="$installDir" \
 		-DCMAKE_INSTALL_PREFIX="$installDir" \
 		-DCMAKE_BUILD_TYPE=$buildType \
-		-G"$generator" &> $builddir/log.txt || \
+		-G"$generator" $extraCmakeArgs &> $builddir/log.txt || \
 			( echo && echo "Failed to configure $framework. cmake ..  Command: " && 
-			echo "cd $builddir/$foldername/build && cmake .. -DCMAKE_PREFIX_PATH=\"$installDir\" -DCMAKE_INSTALL_PREFIX=\"$installDir\" -DCMAKE_BUILD_TYPE=$buildType" && 
+			echo "cd $builddir/$foldername/build && cmake .. -DCMAKE_PREFIX_PATH=\"$installDir\" -DCMAKE_INSTALL_PREFIX=\"$installDir\" -DCMAKE_BUILD_TYPE=$buildType $extraCmakeArgs" && 
 			cat $builddir/log.txt && exit 1 )
     printf 'Done; Building...'
     cmake --build . &> $builddir/log.txt || ( echo && echo "Failed to build $framework. Log: " && cat $builddir/log.txt && exit 1 )
