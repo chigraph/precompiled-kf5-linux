@@ -109,7 +109,7 @@ build_framework kapidox
 build_framework kdnssd
 build_framework kidletime
 build_framework kplotting
-build_framework modemmanager-qt
+#build_framework modemmanager-qt # this crashes gcc for some reason...
 #build_framework networkmanager-qt # it's been a pain in the ass to get the dependencies to work on travis. Contact me if you want this implemented.
 build_framework kwayland
 build_framework prison
