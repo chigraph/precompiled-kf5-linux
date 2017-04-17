@@ -20,10 +20,10 @@ addons:
       - libxml2-utils
       - libudev-dev
       - texinfo
-      - modemmanager
-      - modemmanager-dev
-      - libwayland-dev
-      - libegl1-mesa-dev
+#      - modemmanager
+#      - modemmanager-dev
+#      - libwayland-dev
+#      - libegl1-mesa-dev
       - pkg-config
       - g++-6
 
