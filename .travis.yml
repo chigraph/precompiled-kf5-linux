@@ -32,8 +32,8 @@ addons:
       - libphonon4qt5-dev
       - libphonon4qt5experimental-dev
       - liburi-perl
-
-
+      - docbook-xml
+      - docbook-xsl
 
 branches:
   except:
