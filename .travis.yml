@@ -26,6 +26,8 @@ addons:
 #      - libegl1-mesa-dev
       - pkg-config
       - g++-6
+      - libqrencode-dev
+      - libdmtx-dev
 
 
 branches:
