@@ -30,6 +30,8 @@ addons:
       - libdmtx-dev
       - libattr1-dev
       - libphonon4qt5-dev
+      - libphonon4qt5experimental-dev
+
 
 
 branches:
