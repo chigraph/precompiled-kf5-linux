@@ -29,6 +29,7 @@ addons:
       - libqrencode-dev
       - libdmtx-dev
       - libattr1-dev
+      - libphonon4qt5-dev
 
 
 branches:
