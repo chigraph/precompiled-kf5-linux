@@ -28,6 +28,7 @@ addons:
       - g++-6
       - libqrencode-dev
       - libdmtx-dev
+      - libattr1-dev
 
 
 branches:
