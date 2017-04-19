@@ -34,6 +34,7 @@ addons:
       - liburi-perl
       - docbook-xml
       - docbook-xsl
+      - libboost-all-dev
 
 branches:
   except:
