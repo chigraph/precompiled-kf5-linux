@@ -35,6 +35,7 @@ addons:
       - docbook-xml
       - docbook-xsl
       - libboost-all-dev
+      - liblmdb-dev
 
 branches:
   except:
