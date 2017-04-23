@@ -158,7 +158,7 @@ build_framework kio
 build_framework kactivities
 build_framework kactivities-stats
 build_framework baloo
-build_framework kded
+# build_framework kded # requires a KDE install
 build_framework kxmlrpcclient
 build_framework kparts
 build_framework kdewebkit
