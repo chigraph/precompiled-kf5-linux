@@ -161,12 +161,12 @@ build_framework baloo
 # build_framework kded # requires a KDE install
 build_framework kxmlrpcclient
 build_framework kparts
-build_framework kdewebkit
+# build_framework kdewebkit
 build_framework kdesignerplugin
 build_framework knewstuff
 build_framework ktexteditor
 build_framework kdeclarative
-build_framework plasma_framework
+build_framework plasma-framework
 build_framework kcmutils
 build_framework knotifyconfig
 build_framework krunner
@@ -177,11 +177,11 @@ rm -r $builddir
 
 # compress if -o was specified
 if [ ! -z "$tarballPath" ]; then
-	if [ ${"$tarballPath": -3} == "bz2" ]; then
+	if [ ${tarballPath: -3} == "bz2" ]; then
 		tar -cjf "$tarballPath" "$installDir"
-	elif [ ${"$tarballPath": -2} == "gz" ]; then
+	elif [ ${tarballPath: -2} == "gz" ]; then
 		tar -czf "$tarballPath" "$installDir"
-	elif [ ${"$tarballPath": -2} == "xz" ]; then
+	elif [ ${tarballPath: -2} == "xz" ]; then
 		tar -cJf "$tarballPath" "$installDir"
 	else
 		echo "Unrecognized file extension, end with .bz2, .gz, or .xz"
