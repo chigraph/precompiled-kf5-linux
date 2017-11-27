@@ -11,7 +11,7 @@ usage() {
 buildType=Debug
 generator="Unix Makefiles"
 installDir=""
-kf5Version=5.33.0
+kf5Version=5.40.0
 tarballPath=""
 extraCmakeArgs=""
 
