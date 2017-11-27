@@ -37,6 +37,8 @@ addons:
       - docbook-xsl
       - libboost-all-dev
       - liblmdb-dev
+      - appstream
+      - gperf
 
 branches:
   except:
