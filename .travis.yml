@@ -16,6 +16,7 @@ addons:
       - qt59tools
       - qt59x11extras
       - qt59svg
+      - qt59quickcontrols2
       - ninja-build
       - libxcb-keysyms1-dev
       - libxml2-utils
