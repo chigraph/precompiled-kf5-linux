@@ -8,14 +8,15 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
-      - sourceline: 'ppa:beineri/opt-qt562-trusty'
+      - sourceline: 'ppa:beineri/opt-qt593-trusty'
     packages:
-      - qt56base
-      - qt56script
-      - qt56declarative
-      - qt56tools
-      - qt56x11extras
-      - qt56svg
+      - qt59base
+      - qt59script
+      - qt59declarative
+      - qt59tools
+      - qt59x11extras
+      - qt59svg
+      - qt59quickcontrols2
       - ninja-build
       - libxcb-keysyms1-dev
       - libxml2-utils
@@ -37,15 +38,20 @@ addons:
       - docbook-xsl
       - libboost-all-dev
       - liblmdb-dev
+      - gperf
+      - wget
 
 branches:
   except:
     - # Do not build tags that we create when we upload to GitHub Releases
     - /^(?i:continuous)$/
 
-    
+install:
+  # Update CMake
+  - wget https://cmake.org/files/v3.11/cmake-3.11.0-rc3-Linux-x86_64.tar.gz -O- | sudo tar xz -C /usr --strip-components=1
+
 script:
-  - source /opt/qt56/bin/qt56-env.sh
+  - source /opt/qt59/bin/qt59-env.sh
 #  - ./build_frameworks.sh -i ~/kf5-debug -t Debug -g Ninja -o ~/kf5-gcc-linux64-debug.tar.xz
   - ./build_frameworks.sh -i ~/kf5-release -t Release -g Ninja -o ~/kf5-gcc-linux64-release.tar.xz -a "-DCMAKE_CXX_COMPILER=g++-6"
 

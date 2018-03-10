@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 set -e
 
@@ -11,7 +11,7 @@ usage() {
 buildType=Debug
 generator="Unix Makefiles"
 installDir=""
-kf5Version=5.33.0
+kf5Version=5.43.0
 tarballPath=""
 extraCmakeArgs=""
 
@@ -167,6 +167,7 @@ build_framework knewstuff
 build_framework ktexteditor
 build_framework kdeclarative
 build_framework plasma-framework
+build_framework kirigami2
 build_framework kcmutils
 build_framework knotifyconfig
 build_framework krunner
